@@ -1,4 +1,4 @@
-import React, { useContext } from "react";//useContexy is used to value from React context.
+import React, { useContext } from "react";
 import BsContext from "../../context/Context";
 import "../styles/errorModal.css";
 

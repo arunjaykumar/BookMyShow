@@ -28,9 +28,7 @@ const Home = (props) => {
   const checkNegativeSeatsValidity = useMemo(() => {
     // Define a function that takes in a `seats` object
     return (seats) => {
-      // Loop through each seat in the `seats` object
       for (let seat in seats) {
-        // Check if the seat has a negative value
         if (Number(seats[seat]) < 0) {
           // If any seat has a negative value, return true
           return true;
@@ -49,7 +47,6 @@ const Home = (props) => {
       for (let seat in seats) {
         // Check if the seat has a positive value
         if (Number(seats[seat]) > 0) {
-          // If any seat has a positive value, return false
           return false;
         }
       }

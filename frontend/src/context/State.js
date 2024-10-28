@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import BsContext from "./Context";
 
 const BsState = (props) => {
-  //this is the state variable for managing the seats 
+  //this is the state variable for managing the seats
   const [errorPopup, setErrorPopup] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [time, changeTime] = useState("");
@@ -20,13 +20,16 @@ const BsState = (props) => {
   // this function is used  to make a post request to the server with the booking details
   const handlePostBooking = async () => {
     //from here we are  sending api request to backend with user selected movie, slot and seats to book movie.
-    const response = await fetch(`https://pear-alligator-wear.cyclic.app/api/booking`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ movie: movie, slot: time, seats: noOfSeat }),
-    });
+    const response = await fetch(
+      `https://pear-alligator-wear.cyclic.app/api/booking`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ movie: movie, slot: time, seats: noOfSeat }),
+      }
+    );
 
     const data = await response.json();
 
@@ -54,9 +57,12 @@ const BsState = (props) => {
 
   // this function help  to make a get request to the server to get the last booking details
   const handleGetLastBooking = async () => {
-    const response = await fetch(`https://pear-alligator-wear.cyclic.app/api/booking`, {
-      method: "GET",
-    });
+    const response = await fetch(
+      `https://pear-alligator-wear.cyclic.app/api/booking`,
+      {
+        method: "GET",
+      }
+    );
 
     const data = await response.json();
     // here we are setting last booking details recieved from the backend.
@@ -69,7 +75,7 @@ const BsState = (props) => {
     const slot = window.localStorage.getItem("slot");
     const seats = JSON.parse(window.localStorage.getItem("seats"));
 
-    if(movie || slot || seats){
+    if (movie || slot || seats) {
       changeTime(slot);
       changeMovie(movie);
       changeNoOfSeats(seats);
